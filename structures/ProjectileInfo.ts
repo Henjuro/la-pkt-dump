@@ -1,0 +1,51 @@
+// Auto Generated, do not edit.
+import type { Read } from "../../stream";
+import * as TripodLevel from "../../common/TripodLevel";
+import * as TripodIndex from "../../common/TripodIndex";export type ProjectileInfo = {
+  unk0: number;
+  unk1: number;
+  unk2?: number;
+  unk3: number;
+  targetObjectId: bigint;
+  unk4: number;
+  unk5: bigint;
+  ownerId: bigint;
+  chainSkillEffect: number;
+  unk6: number;
+  unk7: bigint;
+  tripodLevel: TripodLevel.TripodLevel;
+  skillId: number;
+  projectileId: bigint;
+  unk8: number;
+  unk9?: bigint;
+  unk10: number;
+  skillEffect: number;
+  skillLevel: number;
+  struct_333?: Buffer;
+  tripodIndex: TripodIndex.TripodIndex;
+};
+export function read(reader: Read) {
+  const data = {} as ProjectileInfo;
+  data.unk0 = reader.u32();
+  data.unk1 = reader.u16();
+  if (reader.bool()) data.unk2 = reader.u32();
+  data.unk3 = reader.u8();
+  data.targetObjectId = reader.u64();
+  data.unk4 = reader.f32();
+  data.unk5 = reader.u64();
+  data.ownerId = reader.u64();
+  data.chainSkillEffect = reader.u32();
+  data.unk6 = reader.u8();
+  data.unk7 = reader.u64();
+  data.tripodLevel = TripodLevel.read(reader);
+  data.skillId = reader.u32();
+  data.projectileId = reader.u64();
+  data.unk8 = reader.u16();
+  if (reader.bool()) data.unk9 = reader.u64();
+  data.unk10 = reader.u32();
+  data.skillEffect = reader.u32();
+  data.skillLevel = reader.u8();
+  if (reader.bool()) data.struct_333 = reader.bytes(reader.u16(), 11, 9);
+  data.tripodIndex = TripodIndex.read(reader);
+  return data;
+}
